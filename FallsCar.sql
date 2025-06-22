@@ -1,8 +1,6 @@
--- Criação do Banco de Dados
-CREATE DATABASE IF NOT EXISTS locadora_fallscar;
+CREATE DATABASE locadora_fallscar;
 USE locadora_fallscar;
 
--- Tabela Cliente
 CREATE TABLE cliente (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(150),
@@ -11,7 +9,6 @@ CREATE TABLE cliente (
   telefone VARCHAR(25)
 );
 
--- Tabela Loja
 CREATE TABLE loja (
   id INT AUTO_INCREMENT PRIMARY KEY,
   telefone VARCHAR(25),
@@ -20,14 +17,12 @@ CREATE TABLE loja (
   cidade VARCHAR(50)
 );
 
--- Tabela Categoria de Veículo
 CREATE TABLE categoria_veiculo (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(50),
   descricao VARCHAR(250)
 );
 
--- Tabela Veículo
 CREATE TABLE veiculo (
   id INT AUTO_INCREMENT PRIMARY KEY,
   modelo VARCHAR(50),
@@ -40,7 +35,6 @@ CREATE TABLE veiculo (
   FOREIGN KEY (id_categoria) REFERENCES categoria_veiculo(id)
 );
 
--- Tabela Manutenção
 CREATE TABLE manutencao (
   id INT AUTO_INCREMENT PRIMARY KEY,
   data_inicio DATE,
@@ -50,7 +44,6 @@ CREATE TABLE manutencao (
   FOREIGN KEY (id_veiculo) REFERENCES veiculo(id)
 );
 
--- Tabela Motorista
 CREATE TABLE motorista (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(150),
@@ -59,13 +52,11 @@ CREATE TABLE motorista (
   cpf VARCHAR(20)
 );
 
--- Tabela Período de Locação
 CREATE TABLE periodo_locacao (
   id INT AUTO_INCREMENT PRIMARY KEY,
   dias INT
 );
 
--- Tabela Reserva
 CREATE TABLE reserva (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_cliente INT,
@@ -83,7 +74,6 @@ CREATE TABLE reserva (
   FOREIGN KEY (id_periodo_locacao) REFERENCES periodo_locacao(id)
 );
 
--- Tabela Locação
 CREATE TABLE locacao (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_reserva INT,
@@ -99,7 +89,6 @@ CREATE TABLE locacao (
   FOREIGN KEY (id_motorista) REFERENCES motorista(id)
 );
 
--- Tabela Pagamento
 CREATE TABLE pagamento (
   id INT AUTO_INCREMENT PRIMARY KEY,
   valor_pago FLOAT,
@@ -109,7 +98,6 @@ CREATE TABLE pagamento (
   FOREIGN KEY (id_locacao) REFERENCES locacao(id)
 );
 
--- Tabela Funcionário
 CREATE TABLE funcionario (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(150),
