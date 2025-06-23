@@ -49,7 +49,8 @@ CREATE TABLE motorista (
   nome VARCHAR(150),
   telefone VARCHAR(20),
   email VARCHAR(100),
-  cpf VARCHAR(20)
+  cpf VARCHAR(20),
+  diaria_motorista FLOAT
 );
 
 CREATE TABLE periodo_locacao (
