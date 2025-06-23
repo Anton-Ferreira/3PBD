@@ -26,14 +26,14 @@ INSERT INTO veiculo (modelo, placa, valor_diaria, status, id_loja, id_categoria)
 INSERT INTO manutencao (data_inicio, data_fim, descricao, id_veiculo) VALUES
 ('2025-06-01', '2025-06-05', 'Troca de óleo e revisão', 2),
 ('2025-06-10', '2025-06-12', 'Troca de pneus', 3),
-('2025-06-15', '2025-06-18', 'Reparo no motor', 2),
+('2025-06-23', '2025-06-26', 'Reparo no motor', 2),
 ('2025-06-20', '2025-06-22', 'Alinhamento e balanceamento', 1);
 
-INSERT INTO motorista (nome, telefone, email, cpf) VALUES
-('Pedro Almeida', '(11) 91111-1111', 'pedro.almeida@gmail.com', '111.222.333-44'),
-('Fernanda Costa', '(21) 92222-2222', 'fernanda.costa@yahoo.com', '555.666.777-88'),
-('Roberto Lima', '(31) 93333-3333', 'roberto.lima@hotmail.com', '999.888.777-66'),
-('Juliana Rocha', '(41) 94444-4444', 'juliana.rocha@gmail.com', '444.555.666-77');
+INSERT INTO motorista (nome, telefone, email, cpf, diaria_motorista) VALUES
+('Pedro Almeida', '(11) 91111-1111', 'pedro.almeida@gmail.com', '111.222.333-44',30.0),
+('Fernanda Costa', '(21) 92222-2222', 'fernanda.costa@yahoo.com', '555.666.777-88',30.0),
+('Roberto Lima', '(31) 93333-3333', 'roberto.lima@hotmail.com', '999.888.777-66',30.0),
+('Juliana Rocha', '(41) 94444-4444', 'juliana.rocha@gmail.com', '444.555.666-77',30.0);
 
 INSERT INTO periodo_locacao (dias) VALUES
 (7),
@@ -47,16 +47,16 @@ INSERT INTO reserva (id_cliente, id_veiculo, id_lojaPrevistaRetirada, id_lojaPre
 (4, 2, 3, 4, 2, '2025-07-12 15:00:00', '2025-07-22 15:00:00', 0);
 
 INSERT INTO locacao (id_reserva, id_lojaRetirada, id_lojaDevolucao, data_retirada, data_devolucao, valor, id_motorista) VALUES
-(1, 1, 2, '2025-07-01 09:30:00', '2025-07-04 09:45:00', 360.0, 1),
-(2, 2, 3, '2025-07-05 10:15:00', '2025-07-10 10:20:00', 1250.0, NULL),
-(3, 4, 1, '2025-07-08 09:00:00', '2025-07-15 09:05:00', 2100.0, 3),
-(4, 3, 4, '2025-07-12 15:30:00', '2025-07-22 15:35:00', 3000.0, NULL);
+(1, 1, 2, '2025-07-01 09:30:00', '2025-07-07 09:45:00', 360.0, NULL),
+(2, 2, 3, '2025-07-05 10:15:00', '2025-07-19 10:20:00', 1250.0, NULL),
+(3, 4, 1, '2025-07-08 09:00:00', '2025-08-07 09:05:00', 2100.0, 3),
+(4, 3, 4, '2025-07-12 15:30:00', '2025-07-26 15:35:00', 3000.0, NULL);
 
 INSERT INTO pagamento (valor_pago, data_pagamento, forma_pagamento, id_locacao) VALUES
 (360.0, '2025-07-04 10:00:00', 'Cartão de Crédito', 1),
-(1250.0, '2025-07-10 11:00:00', 'Dinheiro', 2),
-(2100.0, '2025-07-15 11:30:00', 'Pix', 3),
-(3000.0, '2025-07-22 16:00:00', 'Boleto', 4);
+(1250.0, '2025-07-10 11:00:00', 'Cartão de Crédito', 2),
+(2100.0, '2025-07-15 11:30:00', 'Cartão de Crédito', 3),
+(3000.0, '2025-07-22 16:00:00', 'Cartão de Crédito', 4);
 
 INSERT INTO funcionario (nome, cpf, cargo, id_loja) VALUES
 ('Lucas Martins', '321.654.987-00', 'Gerente', 1),
