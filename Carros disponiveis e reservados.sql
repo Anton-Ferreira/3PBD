@@ -18,3 +18,30 @@ WHERE
 
 
 
+ SELECT 
+    v.id,
+    v.modelo,
+    v.placa,
+    r.data_previstaRetirada,
+    r.data_previstaDevolucao
+FROM 
+    veiculo v
+JOIN 
+    reserva r ON v.id = r.id_veiculo
+WHERE 
+    '2025-07-01' BETWEEN DATE(r.data_previstaRetirada) AND DATE(r.data_previstaDevolucao);
+
+
+
+SELECT 
+    v.id,
+    v.modelo,
+    v.placa,
+    v.valor_diaria,
+    r.data_previstaRetirada,
+    r.data_previstaDevolucao
+FROM 
+    veiculo v
+INNER JOIN 
+    reserva r ON v.id = r.id_veiculo;
+
