@@ -1,10 +1,10 @@
+SELECT *
 FROM veiculo v
-WHERE v.id NOT IN (
+WHERE v.status = 'Disponível' and v.id NOT IN (
     SELECT r.id_veiculo
     FROM reserva r
     WHERE DATE('2025-07-10') BETWEEN DATE(r.Data_previstaRetirada) AND DATE(r.Data_previstaDevolucao)
 )
-
 AND v.id NOT IN (
     SELECT m.id_veiculo
     FROM manutencao m
